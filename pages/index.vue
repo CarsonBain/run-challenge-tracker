@@ -3,24 +3,23 @@
     <div class="text-center max-w-xs m-auto mb-10">
       <h1 class="uppercase font-semibold text-gray-800 mb-5">Leader board</h1>
       <div class="flex flex-col text-xl space-y-4">
-
       <div class="flex justify-between border rounded-lg border-yellow-200 bg-yellow-50 py-2 px-4 items-center">
 
         <div class="flex space-x-2 items-center">
-          <span class="text-xs rounded-full bg-yellow-100 text-yellow-500 border border-yellow-500 w-4 h-4 flex items-center justify-center">1</span><span class="text-sm font-semibold">Calvin</span></div>
-        <div class="text-sm font-semibold">40.5km</div>
+          <span class="text-xs rounded-full bg-yellow-100 text-yellow-500 border border-yellow-500 w-4 h-4 flex items-center justify-center">1</span><span class="text-sm font-semibold">{{ totalKmsPerUser[0].name }}</span></div>
+        <div class="text-sm font-semibold">{{ totalKmsPerUser[0].total }} km</div>
       </div>
       <div class="flex justify-between border rounded-lg border-gray-200 bg-gray-50 py-2 px-4 items-center">
 
         <div class="flex space-x-2 items-center">
-          <span class="text-xs rounded-full bg-gray-100 text-gray-500 border border-gray-500 w-4 h-4 flex items-center justify-center">2</span><span class="text-sm font-semibold">Calvin</span></div>
-        <div class="text-sm font-semibold">40.5km</div>
+          <span class="text-xs rounded-full bg-gray-100 text-gray-500 border border-gray-500 w-4 h-4 flex items-center justify-center">2</span><span class="text-sm font-semibold">{{ totalKmsPerUser[1].name }}</span></div>
+        <div class="text-sm font-semibold">{{ totalKmsPerUser[1].total }} km</div>
       </div>
       <div class="flex justify-between border rounded-lg border-gray-200 py-2 px-4 items-center">
 
         <div class="flex space-x-2 items-center">
-          <span class="text-xs rounded-full bg-yellow-900 text-yellow-100 border border-yellow-900 w-4 h-4 flex items-center justify-center">3</span><span class="text-sm font-semibold">Calvin</span></div>
-        <div class="text-sm font-semibold">40.5km</div>
+          <span class="text-xs rounded-full bg-yellow-900 text-yellow-100 border border-yellow-900 w-4 h-4 flex items-center justify-center">3</span><span class="text-sm font-semibold">{{ totalKmsPerUser[2].name }}</span></div>
+        <div class="text-sm font-semibold">{{ totalKmsPerUser[2].total }} km</div>
       </div>
       </div>
     </div>
@@ -43,7 +42,7 @@
             <div>
               Carson
             </div>
-            <div class="text-xl bg-red-100 text-red-700 p-1 rounded-md">
+            <div :class="[week.carsonKms < 20 ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700']" class="text-xl p-1 rounded-md">
               {{ week.carsonKms }}
               km
             </div>
@@ -52,7 +51,7 @@
             <div>
               Calvin
             </div>
-            <div class="text-xl bg-green-100 text-green-700 p-1 rounded-md">
+            <div :class="[week.calvinKms < 20 ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700']" class="text-xl p-1 rounded-md">
               {{ week.calvinKms }}
               km
             </div>
@@ -61,8 +60,8 @@
             <div>
               Aaron
             </div>
-            <div class="text-xl bg-green-100 text-green-700 p-1 rounded-md">
-              {{ week.calvinKms }}
+            <div :class="[week.aaronKms < 20 ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700']"  class="text-xl p-1 rounded-md">
+              {{ week.aaronKms }}
               km
             </div>
           </div>
@@ -88,38 +87,51 @@ export default {
       weeklyActivityKms: [
         {
           id: 1,
-          dates: 'June 7 - 13',
-          from: "2021-05-01T00:00:00.000Z",
-          to: "2021-06-03T00:00:00.000Z",
+          dates: 'June 7 - June 13',
+          from: "2021-06-07T00:00:00.000Z",
+          to: "2021-06-14T00:00:00.000Z",
           calvinKms: 0,
-          carsonKms: 0
+          carsonKms: 0,
+          aaronKms: 0,
         },
         {
           id: 2,
-          dates: 'June 7 - 13',
-          from: "2021-05-01T00:00:00.000Z",
-          to: "2021-06-03T00:00:00.000Z",
+          dates: 'June 14 - June 20',
+          from: "2021-06-14T00:00:00.000Z",
+          to: "2021-06-21T00:00:00.000Z",
           calvinKms: 0,
-          carsonKms: 0
+          carsonKms: 0,
+          aaronKms: 0,
         },
         {
           id: 3,
-          dates: 'June 7 - 13',
-          from: "2021-05-01T00:00:00.000Z",
-          to: "2021-06-03T00:00:00.000Z",
+          dates: 'June 21 - June 27',
+          from: "2021-06-21T00:00:00.000Z",
+          to: "2021-06-27T00:00:00.000Z",
           calvinKms: 0,
-          carsonKms: 0
+          carsonKms: 0,
+          aaronKms: 0,
         },
         {
           id: 4,
-          dates: 'June 7 - 13',
+          dates: 'June 28 - July 4',
           from: "2021-05-01T00:00:00.000Z",
           to: "2021-06-03T00:00:00.000Z",
           calvinKms: 0,
-          carsonKms: 0
+          carsonKms: 0,
+          aaronKms: 0,
         },
       ]
     };
+  },
+  computed: {
+    totalKmsPerUser() {
+      const carsonTotal = this.weeklyActivityKms.reduce((a, {carsonKms}) => a + carsonKms, 0);
+      const calvinTotal = this.weeklyActivityKms.reduce((a, {calvinKms}) => a + calvinKms, 0);
+      const aaronTotal = this.weeklyActivityKms.reduce((a, {aaronKms}) => a + aaronKms, 0);
+      const totals = [ {name: 'Carson', total: parseFloat(carsonTotal).toFixed(1)}, {name: 'Calvin', total: parseFloat(calvinTotal).toFixed(1)}, {name:'Aaron', total: parseFloat(aaronTotal).toFixed(1)}]
+      return totals.sort((a, b) => (a.total > b.total) ? -1 : 1);
+    }
   },
   async fetch() {
     const calvinsActivities = await this.$axios.$get(
