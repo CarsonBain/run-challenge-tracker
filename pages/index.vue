@@ -68,7 +68,7 @@
         </div>
         <div class="flex space-x-2 mt-4 justify-evenly">
           <div class="flex flex-col items-center space-y-1">
-            <div>
+            <div class="text-sm">
               Carson
             </div>
             <div
@@ -77,14 +77,14 @@
                   ? 'bg-red-100 text-red-700'
                   : 'bg-green-100 text-green-700'
               ]"
-              class="text-xl p-1 rounded-md"
+              class="text-lg p-1 rounded-md"
             >
               {{ week.carsonKms }}
               km
             </div>
           </div>
           <div class="flex flex-col items-center space-y-1">
-            <div>
+            <div class="text-sm">
               Calvin
             </div>
             <div
@@ -93,14 +93,14 @@
                   ? 'bg-red-100 text-red-700'
                   : 'bg-green-100 text-green-700'
               ]"
-              class="text-xl p-1 rounded-md"
+              class="text-lg p-1 rounded-md"
             >
               {{ week.calvinKms }}
               km
             </div>
           </div>
           <div class="flex flex-col items-center space-y-1">
-            <div>
+            <div class="text-sm">
               Aaron
             </div>
             <div
@@ -109,7 +109,7 @@
                   ? 'bg-red-100 text-red-700'
                   : 'bg-green-100 text-green-700'
               ]"
-              class="text-xl p-1 rounded-md"
+              class="text-lg p-1 rounded-md"
             >
               {{ week.aaronKms }}
               km
