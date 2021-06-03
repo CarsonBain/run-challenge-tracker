@@ -11,6 +11,8 @@ app.get('/activities/:userName', async ({params: {userName}}, res, next) => {
     case 'carson':
       refreshToken = process.env.STRAVA_REFRESH_TOKEN_CARSON
       break;
+    case 'aaron':
+      refreshToken = process.env.STRAVA_REFRESH_TOKEN_AARON
   }
     const headers = {
         'Accept': 'application/json, text/plain, */*',
