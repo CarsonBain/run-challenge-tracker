@@ -33,7 +33,7 @@ app.get('/activities/:userName', async ({params: {userName}}, res, next) => {
     })
 
     const reAuthJson = await reauthorizeResponse.json()
-    const response = await fetch('https://strava.com/api/v3/athlete/activities?before=1625356800&after=1622592000&access_token=' + reAuthJson.access_token)
+    const response = await fetch('https://strava.com/api/v3/athlete/activities?before=1625356800&after=1622592000?per_page=60&access_token=' + reAuthJson.access_token)
     const json = await response.json()
     res.json({data: json })
 
