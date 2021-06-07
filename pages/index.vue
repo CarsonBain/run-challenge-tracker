@@ -1,7 +1,8 @@
 <template>
   <div>
     <div class="text-center max-w-xs m-auto mb-10">
-      <h1 class="uppercase font-semibold text-gray-800 mb-5">Leader board</h1>
+      <h1 class="uppercase font-semibold text-gray-800 mb-1">Leader board</h1>
+      <h2 class="text-gray-600 text-xs mb-5">Total kms June 7 - July 4</h2>
       <div class="flex flex-col text-xl space-y-4">
         <div
           class="flex justify-between border rounded-lg border-yellow-200 bg-yellow-50 py-2 px-4 items-center"
