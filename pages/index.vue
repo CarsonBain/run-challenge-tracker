@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="text-center max-w-xs m-auto mb-10">
-      <h1 class="uppercase font-semibold text-gray-800 mb-1">Leader board</h1>
-      <h2 class="text-gray-600 text-xs mb-5">Total kms June 7 - July 4</h2>
+      <h1 class="uppercase font-semibold text-gray-800 mb-1 text-lg">Leaderboard</h1>
+      <h2 class="text-gray-600 text-sm mb-5">Total kms June 7 - July 4</h2>
       <div class="flex flex-col text-xl space-y-4">
         <div
           class="flex justify-between border rounded-lg border-yellow-300 bg-yellow-50 py-2 px-4 items-center"
@@ -46,7 +46,8 @@
         </div>
       </div>
     </div>
-    <h2 class="uppercase font-semibold text-gray-800 mb-5">Weekly stats</h2>
+    <h2 class="uppercase font-semibold text-gray-800 mb-1 text-center text-lg">Weekly stats</h2>
+    <h3 class="text-gray-600 text-sm mb-5 text-center">Minimum per week: 20km</h3>
     <div
       class="grid md:grid-cols-2 xl:grid-cols-4 gap-4"
       v-if="!$fetchState.pending"
@@ -57,7 +58,7 @@
         class="border-gray-200 border bg-gray-50 rounded p-4"
       >
         <div class="text-center">
-          <h3 class="uppercase font-bold tracking-wide">Week {{ week.id }}</h3>
+          <h3 class="uppercase font-semibold tracking-wide">Week {{ week.id }}</h3>
           <h3 class="uppercase text-gray-700 tracking-wide text-xs">
             {{ week.dates }}
           </h3>
