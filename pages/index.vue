@@ -193,7 +193,7 @@ export default {
         { name: "Calvin", total: parseFloat(calvinTotal).toFixed(1) },
         { name: "Aaron", total: parseFloat(aaronTotal).toFixed(1) }
       ];
-      return totals.sort((a, b) => (a.total > b.total ? -1 : 1));
+      return totals.sort((a, b) => (parseFloat(a.total) > parseFloat(b.total) ? -1 : 1));
     }
   },
   async fetch() {
