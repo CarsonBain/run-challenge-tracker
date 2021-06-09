@@ -5,47 +5,42 @@
       <h2 class="text-gray-600 text-xs mb-5">Total kms June 7 - July 4</h2>
       <div class="flex flex-col text-xl space-y-4">
         <div
-          class="flex justify-between border rounded-lg border-yellow-200 bg-yellow-50 py-2 px-4 items-center"
+          class="flex justify-between border rounded-lg border-yellow-300 bg-yellow-50 py-2 px-4 items-center"
         >
           <div class="flex space-x-2 items-center">
-            <span
-              class="text-xs rounded-full bg-yellow-100 text-yellow-500 border border-yellow-500 w-4 h-4 flex items-center justify-center"
-              >1</span
-            ><span class="text-sm font-semibold">{{
+            <span>🥇</span
+            ><span class="text-sm font-semibold text-yellow-700">{{
               totalKmsPerUser[0].name
             }}</span>
           </div>
-          <div class="text-sm font-semibold">
+          <div class="text-sm font-semibold text-yellow-700">
             {{ totalKmsPerUser[0].total }} km
           </div>
         </div>
         <div
-          class="flex justify-between border rounded-lg border-gray-200 bg-gray-50 py-2 px-4 items-center"
+          class="flex justify-between border rounded-lg border-gray-400 bg-gray-50 py-2 px-4 items-center"
         >
           <div class="flex space-x-2 items-center">
-            <span
-              class="text-xs rounded-full bg-gray-100 text-gray-500 border border-gray-500 w-4 h-4 flex items-center justify-center"
-              >2</span
-            ><span class="text-sm font-semibold">{{
+            <span>🥈</span
+            ><span class="text-sm font-semibold text-gray-700">{{
               totalKmsPerUser[1].name
             }}</span>
           </div>
-          <div class="text-sm font-semibold">
+          <div class="text-sm font-semibold text-gray-700">
             {{ totalKmsPerUser[1].total }} km
           </div>
         </div>
         <div
-          class="flex justify-between border rounded-lg border-gray-200 py-2 px-4 items-center"
+          class="flex justify-between border rounded-lg bg-yellow-800 bg-opacity-10 border-yellow-800 py-2 px-4 items-center"
         >
           <div class="flex space-x-2 items-center">
             <span
-              class="text-xs rounded-full bg-yellow-900 text-yellow-100 border border-yellow-900 w-4 h-4 flex items-center justify-center"
-              >3</span
-            ><span class="text-sm font-semibold">{{
+              >🥉</span
+            ><span class="text-sm font-semibold text-yellow-900">{{
               totalKmsPerUser[2].name
             }}</span>
           </div>
-          <div class="text-sm font-semibold">
+          <div class="text-sm font-semibold text-yellow-900">
             {{ totalKmsPerUser[2].total }} km
           </div>
         </div>
@@ -193,7 +188,9 @@ export default {
         { name: "Calvin", total: parseFloat(calvinTotal).toFixed(1) },
         { name: "Aaron", total: parseFloat(aaronTotal).toFixed(1) }
       ];
-      return totals.sort((a, b) => (parseFloat(a.total) > parseFloat(b.total) ? -1 : 1));
+      return totals.sort((a, b) =>
+        parseFloat(a.total) > parseFloat(b.total) ? -1 : 1
+      );
     }
   },
   async fetch() {
