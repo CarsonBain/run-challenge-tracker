@@ -3,7 +3,7 @@
     <div class="text-center max-w-xs m-auto mb-10">
       <h1 class="uppercase font-semibold text-gray-800 mb-1 text-lg">Leaderboard</h1>
       <h2 class="text-gray-600 text-sm mb-5">Total kms June 7 - July 4</h2>
-      <div class="flex flex-col text-xl space-y-4">
+      <div v-if="!$fetchState.pending" class="flex flex-col text-xl space-y-4">
         <div
           class="flex justify-between border rounded-lg border-yellow-300 bg-yellow-50 py-2 px-4 items-center"
         >
@@ -173,15 +173,15 @@ export default {
   computed: {
     totalKmsPerUser() {
       const carsonTotal = this.weeklyActivityKms.reduce(
-        (a, { carsonKms }) => a + carsonKms,
+        (a, { carsonKms }) => +a + +carsonKms,
         0
       );
       const calvinTotal = this.weeklyActivityKms.reduce(
-        (a, { calvinKms }) => a + calvinKms,
+        (a, { calvinKms }) => +a + +calvinKms,
         0
       );
       const aaronTotal = this.weeklyActivityKms.reduce(
-        (a, { aaronKms }) => a + aaronKms,
+        (a, { aaronKms }) => +a + +aaronKms,
         0
       );
       const totals = [
@@ -209,6 +209,7 @@ export default {
     this.aaronsActivities = aaronsActivities.data;
 
     this.formatWeeklyData();
+    this.loading = false
   },
   methods: {
     formatWeeklyData() {
