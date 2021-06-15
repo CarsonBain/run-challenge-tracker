@@ -134,8 +134,8 @@ export default {
         {
           id: 1,
           dates: "June 7 - June 13",
-          from: "2021-06-07T00:00:00.000Z",
-          to: "2021-06-14T00:00:00.000Z",
+          from: "2021-06-07T04:00:00Z",
+          to: "2021-06-14T03:59:59Z",
           calvinKms: 0,
           carsonKms: 0,
           aaronKms: 0
@@ -143,8 +143,8 @@ export default {
         {
           id: 2,
           dates: "June 14 - June 20",
-          from: "2021-06-14T00:00:00.000Z",
-          to: "2021-06-21T00:00:00.000Z",
+          from: "2021-06-14T04:00:00Z",
+          to: "2021-06-21T03:59:59Z",
           calvinKms: 0,
           carsonKms: 0,
           aaronKms: 0
@@ -152,8 +152,8 @@ export default {
         {
           id: 3,
           dates: "June 21 - June 27",
-          from: "2021-06-21T00:00:00.000Z",
-          to: "2021-06-27T00:00:00.000Z",
+          from: "2021-06-21T04:00:00Z",
+          to: "2021-06-27T03:59:59Z",
           calvinKms: 0,
           carsonKms: 0,
           aaronKms: 0
@@ -161,8 +161,8 @@ export default {
         {
           id: 4,
           dates: "June 28 - July 4",
-          from: "2021-05-01T00:00:00.000Z",
-          to: "2021-06-03T00:00:00.000Z",
+          from: "2021-05-01T04:00:00Z",
+          to: "2021-06-03T03:59:59Z",
           calvinKms: 0,
           carsonKms: 0,
           aaronKms: 0
